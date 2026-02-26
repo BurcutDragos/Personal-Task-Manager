@@ -1,0 +1,51 @@
+#!/usr/bin/env php
+<?php
+
+/**
+ * Console entry point for Personal Task Manager.
+ *
+ * Run this script from the project root to execute Yii2 console commands:
+ *
+ *   php yii migrate                       — apply all pending migrations
+ *   php yii migrate/down 1                — roll back the last migration
+ *   php yii migrate/create add_foo_column — generate a new migration file
+ *   php yii help                          — list all available commands
+ *
+ * WHY this file exists (instead of using vendor/bin/yii):
+ *   Yii2's vendor/bin/yii script boots a bare-minimum console app that has no
+ *   `db` component configured.  Running `php vendor/bin/yii migrate` therefore
+ *   fails with "Unknown component ID: db".
+ *
+ *   This project-level script loads config/console.php which does include the
+ *   `db` component, so migrations and other DB-dependent commands work correctly.
+ *
+ * Execution order:
+ *   1. Define YII_DEBUG / YII_ENV for the console environment.
+ *   2. Load the Composer autoloader.
+ *   3. Load the Yii class file.
+ *   4. Load config/console.php (includes the db component).
+ *   5. Instantiate yii\console\Application and call run().
+ *      run() parses the command-line arguments, dispatches to the correct
+ *      controller action, and exits with an appropriate exit code.
+ */
+
+// Debug mode on — verbose error output is helpful during development.
+// The console has no external users, so leaking details is acceptable.
+defined('YII_DEBUG') or define('YII_DEBUG', true);
+defined('YII_ENV')   or define('YII_ENV', 'dev');
+
+// Composer PSR-4 autoloader
+require __DIR__ . '/vendor/autoload.php';
+
+// Yii2 framework bootstrap
+require __DIR__ . '/vendor/yiisoft/yii2/Yii.php';
+
+// Console-specific configuration (includes db component for migrations)
+$config = require __DIR__ . '/config/console.php';
+
+// Instantiate and run the console application.
+// $exitCode is 0 on success, non-zero on error — passed to exit() so the shell
+// can detect failures in scripts or CI pipelines.
+$application = new yii\console\Application($config);
+$exitCode    = $application->run();
+exit($exitCode);

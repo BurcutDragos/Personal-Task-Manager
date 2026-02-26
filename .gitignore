@@ -1,0 +1,15 @@
+# Composer dependencies
+/vendor/
+
+# Yii2 published assets (regenerated at runtime)
+/web/assets/*
+!/web/assets/.gitkeep
+
+# Runtime files
+/runtime/
+
+# Environment / IDE
+.env
+.idea/
+.vscode/
+*.DS_Store

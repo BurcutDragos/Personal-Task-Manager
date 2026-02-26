@@ -1,0 +1,14 @@
+Options +FollowSymLinks
+IndexIgnore */*
+
+RewriteEngine on
+
+# Serve existing files and directories directly
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Route everything else through index.php
+RewriteRule . index.php [L]
+
+# Block access to hidden files (.htaccess, .htpasswd, etc.)
+RewriteRule /\. - [F]

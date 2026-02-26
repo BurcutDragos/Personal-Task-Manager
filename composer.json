@@ -1,0 +1,21 @@
+{
+    "name": "personal/task-manager",
+    "description": "Personal Task Manager — a Yii2 PHP web application with task CRUD, categories, soft deletes, CSV export, and Ajax status updates",
+    "keywords": ["php", "yii2", "task-manager", "crud"],
+    "license": "MIT",
+    "require": {
+        "php": ">=7.4",
+        "yiisoft/yii2": "~2.0.14",
+        "yidas/yii2-composer-bower-skip": "^2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "app\\": ""
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "yiisoft/yii2-composer": true
+        }
+    }
+}
