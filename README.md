@@ -4,7 +4,7 @@ A fully-featured **Task Management System** built with [Yii 2 Framework](https:/
 
 ---
 
-## Features
+## 📱 Features
 
 | Feature | Description |
 |---------|-------------|
@@ -23,7 +23,7 @@ A fully-featured **Task Management System** built with [Yii 2 Framework](https:/
 
 ---
 
-## Requirements
+## ✅ Requirements
 
 | Tool | Version |
 |------|---------|
@@ -34,7 +34,7 @@ A fully-featured **Task Management System** built with [Yii 2 Framework](https:/
 
 ---
 
-## Setup
+## 🚀 Setup
 
 ### 1. Install PHP dependencies
 
@@ -89,7 +89,7 @@ For Apache: point the DocumentRoot to the `web/` directory. The included `web/.h
 
 ---
 
-## Project Structure
+## ✅ Project Structure
 
 ```
 rockna-task-manager/
@@ -131,7 +131,7 @@ rockna-task-manager/
 
 ---
 
-## Key Design Decisions
+## 🧠 Key Design Decisions
 
 ### 1. Soft Deletes — `deleted_at` column
 
@@ -161,7 +161,7 @@ Create and Update actions wrap the `save()` call and category pivot sync in a `b
 
 ---
 
-## Security Measures
+## 📄 Security Measures
 
 - `Html::encode()` on all user-supplied output (XSS prevention)
 - ActiveRecord parameterised queries via PDO (SQL injection prevention)
@@ -171,7 +171,7 @@ Create and Update actions wrap the `save()` call and category pivot sync in a `b
 
 ---
 
-## Evaluation Q&A
+## 💡 Evaluation Q&A
 
 **Query optimisation for large datasets**
 Add composite indexes on `(status, priority)` and `(due_date)`. Already using `with('categories')` to avoid N+1 queries. For full-text search at scale, consider MySQL FULLTEXT indexes or a dedicated search engine.
@@ -184,3 +184,19 @@ Use optimistic locking: add a `version INT` column, attach `OptimisticLockBehavi
 - User authentication + per-user task ownership (`AccessControl` filter)
 - Due-date email reminders (console cron command)
 - Drag-and-drop Kanban board view
+
+## 🤝 Contributing:
+1. Fork the repository.
+2. Create a new branch: `git checkout -b my-feature-branch`
+3. Make your changes and commit them: `git commit -m 'Add some feature'`
+4. Push to the branch: `git push origin my-feature-branch`
+5. Submit a pull request.
+
+## 📄 License:
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## 🧑‍💻 Author(s):
+Burcut Ioan Dragos.
+
+## 💡 Acknowledgments:
+Thanks to Anthropic (Claude AI) for providing assistance in the development of this project.
